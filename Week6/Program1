@@ -1,0 +1,62 @@
+//insertion at starting
+#include<iostream>
+using namespace std;
+class node
+{
+    public:
+    int data;
+    node *link;
+};
+int main()
+{
+    node *h=NULL,*Cn=NULL,*t=NULL;
+    int val,ch;
+    
+    do
+    {
+        Cn=new node;
+        cout<<"Enter node data :";
+        cin>>val;
+        Cn->data=val;
+        Cn->link=NULL;
+        if(h==NULL)
+        {
+            h=Cn;
+            t=Cn;
+        }
+        else
+        {
+            t->link=Cn;
+            t=Cn;
+        }
+        cout<<"\n do you want to continue 1/0:";
+        cin>>ch;
+    }
+    while(ch);
+    //display linked list data
+    cout<<"\n linked list data";
+    t=h;
+    while(t!=NULL)
+    {
+        cout<<t->data<<" ";
+        t=t->link;
+    }
+    //insertion at starting
+    t=h;
+    Cn=new node;
+        cout<<"\nEnter node data :";
+        cin>>val;
+        Cn->data=val;
+        Cn->link=NULL;
+        Cn->link=t;
+        h=Cn;
+        t=Cn;
+        //display linked list data
+        cout<<"\n linked list data after insertion operation :\n";
+        t=h;
+        while(t!=NULL)
+        {
+            cout<<t->data<<" ";
+            t=t->link;
+        }
+}
