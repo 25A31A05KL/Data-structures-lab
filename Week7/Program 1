@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int s[10],size,top=-1,op,item;
+    cout<<"Enter size of the stack:";
+    cin>>size;
+    do
+    {
+        cout<<"1:push\n2:pop\n3:peek\n4:dispay\n5:exit";
+        cin>>op;
+        switch(op)
+        {
+            case1:if(top==size-1)
+            {
+                cout<<"stackis overflow:";
+                
+            }
+            else 
+            {
+                cout<<"Enter item:";
+                cin>>item;
+                top=top+10;
+                s[top]=item;
+            }
+            case2:if(top==-1)
+            {
+                cout<<"stack is underflow:";
+            }
+            else
+            {
+                cout<<"poped value:"<<s[top];
+                top=top-1;
+            }
+            case3:if(top==-1)
+            {
+                cout<<"stackis underflow:";
+            }
+            else
+            {
+                cout<<"top element:"<<s[top];
+                break;
+            }
+            case4:if(top==-1)
+            {
+                cout<<"stack is underflow:";
+            }
+            else
+            {
+                for(int i=top;i>=0;i--)
+                    cout<<"s[i]"<<" ";
+            }
+                break;
+                case5:exit(0);
+                default:cout<<"invalid option:";
+            }
+            cout<<"do you want to continue 1/0:";
+            cin>>op;
+        }
+        while(op);
+}
