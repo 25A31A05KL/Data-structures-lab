@@ -1,0 +1,78 @@
+#include<iostream>
+using namespace std;
+class node
+{
+    public:
+           int data;
+           node*link;
+    };
+      int main()
+         {
+        node*top=NULL,*Cn=NULL,*t=NULL;
+        int val,op;
+          do
+         {
+           cout<<"1:push\n2:pop\n3:peek\n4:display\n5:exit\n:choose any one option";
+           cin>>op;
+    switch(op)
+    {
+    case1: Cn=new node();
+           cout<<"Enter node data";
+           cin>>val;
+           Cn->data=val;
+           Cn->link=NULL;
+           if(top==NULL)
+            {
+               top=Cn;
+               t=Cn;
+            }
+            else 
+      {
+                Cn->link=t;
+                top=Cn;
+                t=Cn;
+            }
+             break;
+    case2:if(top==NULL)
+            {
+                cout<<"stack is underflow:";
+            }
+            else
+            {
+                cout<<"poped value:"<<top->data;
+                top=Cn->link;
+                Cn->link=NULL;
+                   delete t;
+            }
+                 break;
+    case3:if(top==NULL)
+            {
+                cout<<"stackis underflow:";
+            }
+            else
+            {
+                cout<<"top element:"<<top->data;
+            }
+                break;
+    case4:if(top==NULL)
+            {
+                cout<<"stack is underflow:";
+            }
+            else
+            {    
+                      t=top;
+            }
+                    while(t!=NULL)
+                   {
+                     cout<<t->data;
+                     t=t->link;
+                   }
+                     break;
+    case5:exit(0);
+                default:cout<<"invalid option:";
+            }
+            cout<<"do you want to continue 1/0:";
+            cin>>op;
+        }
+        while(op);
+}
