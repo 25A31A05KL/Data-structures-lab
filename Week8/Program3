@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int stack[50], top = -1;
+    char exp[50];
+    int i = 0, op1, op2, result;
+
+    cout << "Enter postfix expression: ";
+    cin >> exp;
+
+    while(exp[i] != '\0')
+    {
+        // If operand (digit)
+        if(isdigit(exp[i]))
+        {
+            stack[++top] = exp[i] - '0'; // convert char to int
+        }
+        else // operator
+        {
+            op2 = stack[top--];
+            op1 = stack[top--];
+
+            switch(exp[i])
+            {
+                case '+': result = op1 + op2; break;
+                case '-': result = op1 - op2; break;
+                case '*': result = op1 * op2; break;
+                case '/': result = op1 / op2; break;
+                case '^': result = pow(op1, op2); break;
+            }
+
+            stack[++top] = result;
+        }
+        i++;
+    }
+
+    cout << "Result = " << stack[top];
+
+    return 0;
+}
