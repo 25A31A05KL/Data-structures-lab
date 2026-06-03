@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+    int m,key,i,loc,nk;
+    cout<<"enter size of hash table:";
+    cin>>m;
+    int hash[m];
+    for(i=0;i<m;i++)
+    {
+        hash[i]=-999;
+    }
+    cout<<"total no.of keys:";
+    cin>>nk;
+    for(i=0;i<nk;i++)
+    {
+        cout<<"Enter key value:"<<i+1<<" : ";
+        cin>>key;
+        loc=key%m;
+        if(hash[loc]==-999)
+        {
+            hash[loc]=key;
+        }
+        else
+        {
+            cout<<"collision occurred to intrest key:"<<key;
+    }
+    cout<<"hash table status\n";
+    for(i=0;i<m;i++)
+    cout<<hash[i]<<" ";
+    
+    }
